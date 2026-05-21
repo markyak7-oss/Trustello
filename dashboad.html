@@ -7,19 +7,42 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sim-banner">⚠️ SIMULATION MODE — Not a real bank. Do not enter real credentials.</div>
-        <div class="bank-card dashboard">
-            <div class="logout-btn">
-                <button id="logoutBtn">Logout</button>
+    <div class="update-banner">
+        📢 Updates: Earn up to 4% interest on your Trustello Savings Account balance. 
+        <a href="#">More Details →</a>
+    </div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <div class="logo-placeholder">
+                    <span class="logo-icon">🏦</span>
+                    <span class="logo-text">TRUSTELLO BANK</span>
+                </div>
             </div>
-            <h1>TrustTello Bank</h1>
-            <div class="welcome-message">
-                Welcome back, <span id="userEmail">User</span>
-            </div>
-            
-            <!-- Bank Card Section (NEW) -->
-            <div class="bank-card-section">
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown"><a href="#">Pages ▼</a></li>
+                <li><a href="#">Get Loan</a></li>
+                <li><a href="#">Get In Touch</a></li>
+                <li><a href="#" id="logoutBtnNav" class="logout-nav">Logout</a></li>
+                <li><a href="#" class="signup-btn">Open an Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="dashboard-grid">
+            <!-- Left Column -->
+            <div class="dashboard-left">
+                <div class="welcome-card">
+                    <h3>Welcome back, <span id="userEmail">User</span></h3>
+                    <p>Your financial health is our priority</p>
+                </div>
+
+                <!-- Bank Card -->
                 <div class="physical-card">
                     <div class="card-chip">💳</div>
                     <div class="card-number">**** **** **** 1234</div>
@@ -35,51 +58,62 @@
                     </div>
                     <div class="card-brand">TrustTello</div>
                 </div>
+
+                <!-- Transfer Money -->
+                <div class="transfer-section">
+                    <h3>Transfer Money</h3>
+                    <form id="transferForm">
+                        <div class="transfer-group">
+                            <label>Recipient Email</label>
+                            <input type="email" id="recipientEmail" placeholder="friend@example.com" required>
+                        </div>
+                        <div class="transfer-group">
+                            <label>Amount ($)</label>
+                            <input type="number" id="transferAmount" step="0.01" min="0.01" placeholder="0.00" required>
+                        </div>
+                        <div class="transfer-group">
+                            <label>Description (Optional)</label>
+                            <input type="text" id="transferDesc" placeholder="Dinner, rent, etc.">
+                        </div>
+                        <button type="submit" id="transferBtn">Send Money</button>
+                    </form>
+                    <div id="transferMessage" class="transfer-message"></div>
+                </div>
             </div>
-            
-            <div class="account-summary">
+
+            <!-- Right Column -->
+            <div class="dashboard-right">
                 <div class="balance-card">
                     <p>Current Balance</p>
                     <h2 id="balance">$0.00</h2>
+                    <div class="account-info">
+                        <p>Account Number: <strong>****1234</strong></p>
+                        <p>Routing: <strong>021000021</strong></p>
+                    </div>
                 </div>
-                <div class="account-info">
-                    <p>Account Number: <strong>****1234</strong></p>
-                    <p>Routing: <strong>021000021</strong></p>
+
+                <div class="transactions">
+                    <h3>Recent Transactions</h3>
+                    <div class="transactions-table-wrapper">
+                        <table id="transactionsTable">
+                            <thead>
+                                <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
+                            </thead>
+                            <tbody id="transactionsBody"></tbody>
+                        </table>
+                    </div>
                 </div>
-            </div>
-            
-            <!-- Transfer Money Section (NEW) -->
-            <div class="transfer-section">
-                <h3>Transfer Money</h3>
-                <form id="transferForm">
-                    <div class="transfer-group">
-                        <label>Recipient Email</label>
-                        <input type="email" id="recipientEmail" placeholder="friend@example.com" required>
-                    </div>
-                    <div class="transfer-group">
-                        <label>Amount ($)</label>
-                        <input type="number" id="transferAmount" step="0.01" min="0.01" placeholder="0.00" required>
-                    </div>
-                    <div class="transfer-group">
-                        <label>Description (Optional)</label>
-                        <input type="text" id="transferDesc" placeholder="Dinner, rent, etc.">
-                    </div>
-                    <button type="submit" id="transferBtn">Send Money</button>
-                </form>
-                <div id="transferMessage" class="transfer-message"></div>
-            </div>
-            
-            <div class="transactions">
-                <h3>Recent Transactions</h3>
-                <table id="transactionsTable">
-                    <thead>
-                        <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
-                    </thead>
-                    <tbody id="transactionsBody"></tbody>
-                </table>
             </div>
         </div>
     </div>
+
+    <footer class="footer">
+        <div class="language-selector">
+            <span>🌐 EN ▼</span>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
+ 
