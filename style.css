@@ -514,3 +514,74 @@ td.positive {
         padding: 25px;
     }
 }
+
+/* ============================================ */
+/* TRUSTELLO BANK - CUSTOM LOGO STYLES          */
+/* ============================================ */
+
+/* Logo Section Container */
+.logo-section {
+    text-align: center;
+    margin: 10px 0 20px 0;
+}
+
+/* Colored Gradient Logo */
+.custom-logo {
+    background: linear-gradient(135deg, #0a1e3c 0%, #1a4a8a 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 28px;
+    font-weight: bold;
+    display: inline-block;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Gold Accent for "BANK" text */
+.logo-accent {
+    color: #ffd700;
+    font-weight: bold;
+}
+
+/* Optional: Add hover effect */
+.custom-logo:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+/* For smaller screens */
+@media (max-width: 700px) {
+    .custom-logo {
+        font-size: 20px;
+        padding: 8px 16px;
+    }
+}
+
+/* If you want the logo in the navbar as well */
+.navbar .custom-logo {
+    background: transparent;
+    box-shadow: none;
+    padding: 0;
+    color: #1a3a5c;
+    font-size: 22px;
+}
+
+.navbar .logo-accent {
+    color: #1a3a5c;
+    opacity: 0.8;
+}
+
+/* Alternative: Simple Text Logo (if gradient doesn't fit your design) */
+.logo-text-only {
+    font-size: 24px;
+    font-weight: bold;
+    background: linear-gradient(135deg, #0a1e3c, #1a4a8a);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+}
+}
