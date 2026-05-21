@@ -32,7 +32,10 @@
                             <span id="cardHolderName">Mark Young</span>
                         </div>
                     </div>
-                    <div class="card-brand">TrustTello</div>
+                    <div class="card-brand">
+                        TrustTello
+                        <span class="mastercard-sign">Mastercard</span>
+                    </div>
                 </div>
             </div>
             
@@ -74,11 +77,19 @@
                     <thead>
                         <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
                     </thead>
-                    <tbody id="transactionsBody"></tbody>
+                    <tbody id="transactionsBody">
+                        <!-- Pending/holding transaction from Lumière Élite Production -->
+                        <tr class="pending-transaction">
+                            <td>2026-05-21</td>
+                            <td>⏳ Pending: Lumière Élite Production - Wire Transfer (On Hold)</td>
+                            <td class="pending-amount">-$382,000.00</td>
+                        </tr>
+                    </tbody>
                 </table>
             </div>
         </div>
     </div>
     <script src="script.js"></script>
 </body>
+</html>
 </html>
