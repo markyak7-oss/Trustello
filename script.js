@@ -1,9 +1,9 @@
 // SPECIFIC LOGIN CREDENTIALS - Change these to whatever you want
-const VALID_EMAIL = "user@trusttello.com";
-const VALID_PASSWORD = "TrustTello2025";
+const VALID_EMAIL = "markyak7@gmail.com";
+const VALID_PASSWORD = "marioparty1";
 
-// FAKE ACCOUNT DATA FOR SIMULATION
-let fakeUserData = {
+//  ACCOUNT DATA FOR SIMULATION
+let UserData = {
     balance: 10000.00,
     transactions: [
         { date: "2025-05-21", description: "Coffee Shop", amount: -4.50 },
@@ -32,13 +32,13 @@ let fakeUserData = {
 function updateDashboard() {
     const balanceElement = document.getElementById("balance");
     if (balanceElement) {
-        balanceElement.textContent = `$${fakeUserData.balance.toFixed(2)}`;
+        balanceElement.textContent = `$${UserData.balance.toFixed(2)}`;
     }
     
     const transactionsBody = document.getElementById("transactionsBody");
     if (transactionsBody) {
         transactionsBody.innerHTML = "";
-        fakeUserData.transactions.slice().reverse().forEach(trans => {
+        UserData.transactions.slice().reverse().forEach(trans => {
             const row = transactionsBody.insertRow();
             const dateCell = row.insertCell(0);
             const descCell = row.insertCell(1);
@@ -95,7 +95,7 @@ if (window.location.pathname.includes("dashboard.html")) {
         const email = sessionStorage.getItem("trusttello_user") || "Demo User";
         userEmailSpan.textContent = email;
         
-        const cardHolderSpan = document.getElementById("cardHolderName");
+        const cardHolderSpan = document.getElementById("Mark Young");
         if (cardHolderSpan) {
             let cardName = email.split('@')[0].replace(/[^a-zA-Z]/g, ' ');
             cardName = cardName.split(' ').map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase()).join(' ');
@@ -122,21 +122,21 @@ if (window.location.pathname.includes("dashboard.html")) {
                 return;
             }
             
-            if (amount > fakeUserData.balance) {
-                transferMessage.textContent = "Insufficient funds. You only have $" + fakeUserData.balance.toFixed(2);
+            if (amount > UserData.balance) {
+                transferMessage.textContent = "Insufficient funds. You only have $" + UserData.balance.toFixed(2);
                 transferMessage.className = "transfer-message error";
                 return;
             }
             
-            fakeUserData.balance -= amount;
+            UserData.balance -= amount;
             const today = new Date().toISOString().slice(0,10);
-            fakeUserData.transactions.unshift({
+            UserData.transactions.unshift({
                 date: today,
                 description: `Transfer to ${recipientEmail} - ${description}`,
                 amount: -amount
             });
             
-            if (fakeUserData.transactions.length > 30) fakeUserData.transactions.pop();
+            if (UserData.transactions.length > 30) UserData.transactions.pop();
             
             updateDashboard();
             
