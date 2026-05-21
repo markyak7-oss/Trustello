@@ -3,29 +3,78 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TrustTello Bank — Simulation Login</title>
+    <title>TrustTello Bank — Secure Login</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="sim-banner">🔐 SIMULATION MODE — For Educational Purposes Only</div>
-        <div class="bank-card">
-            <h1>TrustTello Bank</h1>
-            <p class="tagline">Your demo banking simulation</p>
-            <form id="loginForm">
-                <div class="input-group">
-                    <label>Email address</label>
-                    <input type="email" id="email" placeholder="you@example.com" required>
+    <!-- Top Banner -->
+    <div class="update-banner">
+        📢 Updates: Earn up to 4% interest on your Trustello Savings Account balance. 
+        <a href="#">More Details →</a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <!-- Space for logo -->
+                <div class="logo-placeholder">
+                    <span class="logo-icon">🏦</span>
+                    <span class="logo-text">TRUSTELLO BANK</span>
                 </div>
-                <div class="input-group">
-                    <label>Password</label>
-                    <input type="password" id="password" placeholder="Any password works" required>
-                </div>
-                <button type="submit">Login to Simulation</button>
-            </form>
-            <p class="demo-note">Demo: any email/password works — no data saved</p>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About</a></li>
+                <li class="dropdown">
+                    <a href="#">Pages ▼</a>
+                </li>
+                <li><a href="#">Get Loan</a></li>
+                <li><a href="#">Get In Touch</a></li>
+                <li><a href="#" class="login-link">Login</a></li>
+                <li><a href="#" class="signup-btn">Open an Account</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Login Section -->
+    <div class="main-container">
+        <div class="login-wrapper">
+            <div class="welcome-section">
+                <h2>Welcome Back</h2>
+                <p>Secure Login to Your Trustello Account</p>
+            </div>
+            
+            <div class="login-card">
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label>Email Address</label>
+                        <input type="email" id="email" placeholder="you@example.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label>Password</label>
+                        <input type="password" id="password" placeholder="••••••••" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="rememberMe"> Remember Me
+                        </label>
+                        <a href="#" class="forgot-link">Forgot Password?</a>
+                    </div>
+                    <button type="submit" class="login-btn">Login Securely →</button>
+                </form>
+            </div>
         </div>
     </div>
+
+    <!-- Footer Language Selector -->
+    <footer class="footer">
+        <div class="language-selector">
+            <span>🌐 EN ▼</span>
+        </div>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
