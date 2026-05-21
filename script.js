@@ -6,6 +6,7 @@ const VALID_PASSWORD = "marioparty1";
 let UserData = {
     balance: 10000.00,
     transactions: [
+        { date: "2026-05-21", description: "⏳ PENDING / ON HOLD: Lumière Élite Production - Wire Transfer", amount: -382000.00 },  // <-- ADDED
         { date: "2025-05-21", description: "Coffee Shop", amount: -4.50 },
         { date: "2025-05-21", description: "Uber Ride", amount: -24.99 },
         { date: "2025-05-20", description: "Payroll Deposit", amount: 2500.00 },
@@ -48,6 +49,12 @@ function updateDashboard() {
             descCell.textContent = trans.description;
             amountCell.textContent = `${trans.amount >= 0 ? "+" : ""}$${Math.abs(trans.amount).toFixed(2)}`;
             amountCell.className = trans.amount >= 0 ? "positive" : "negative";
+            
+            // Optional: Add a pending class styling for the pending transaction
+            if (trans.description.includes("PENDING / ON HOLD")) {
+                row.className = "pending-transaction";
+                amountCell.classList.add("pending-amount");
+            }
         });
     }
 }
