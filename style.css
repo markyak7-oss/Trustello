@@ -583,15 +583,20 @@ td.positive {
     background-clip: text;
     color: transparent;
     display: inline-block;
-}/* Logo Image Styles */
-.bank-logo {
-    max-width: 200px;
-    height: auto;
-    display: inline-block;
+/* Logo Image Styles - Blue Background Shape */
+.logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
 }
 
-.logo-section {
-    text-align: center;
-    margin: 10px 0;
-}
+.bank-logo {
+    background: linear-gradient(135deg, #0a1e3c 0%, #1a4a8a 100%);
+    padding: 8px 16px;
+    border-radius: 12px;
+    max-width: 180px;
+    height: auto;
+    display: inline-block;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
