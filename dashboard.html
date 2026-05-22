@@ -7,95 +7,136 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <div class="bank-card dashboard">
-            <!-- Logo Section - Top Left Corner with Blue Background Wrapper -->
-            <div class="logo-section">
-                <div class="logo-blue-bg">
-                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJX2ZDa-uyqSd7g50r66tyUPOaTvo8WCbmnlj95F3vcibmzq5OAerZwbmfi_qysc3w4CRJn98SGDkOrQ_m3ZCFn9ofwAVLncT7ilW7xC7VNoZwsf7-wgF4w3XSMqtoRwtBaZBlxAYm1YB0yN_78huTArWcEP47Dm3lwleB87Sgpbt4QH7KBnHInQFAAweE/s320/logo%20%281%29.png" 
-                         alt="TrustTello Bank Logo" 
-                         class="bank-logo">
+    <div class="dashboard-wrapper">
+        <!-- Top Navigation Bar -->
+        <nav class="dashboard-nav">
+            <div class="nav-brand">
+                <div class="logo-section">
+                    <div class="logo-blue-bg">
+                        <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJX2ZDa-uyqSd7g50r66tyUPOaTvo8WCbmnlj95F3vcibmzq5OAerZwbmfi_qysc3w4CRJn98SGDkOrQ_m3ZCFn9ofwAVLncT7ilW7xC7VNoZwsf7-wgF4w3XSMqtoRwtBaZBlxAYm1YB0yN_78huTArWcEP47Dm3lwleB87Sgpbt4QH7KBnHInQFAAweE/s320/logo%20%281%29.png" 
+                             alt="TrustTello Bank Logo" 
+                             class="bank-logo">
+                    </div>
                 </div>
             </div>
-            
-            <div class="logout-btn">
-                <button id="logoutBtn">Logout</button>
+            <div class="nav-user">
+                <span class="user-greeting">Welcome, <span id="userEmail">User</span></span>
+                <button id="logoutBtn" class="logout-btn-nav">Logout</button>
             </div>
-            
-            <!-- Removed duplicate h1 title -->
-            
-            <div class="welcome-message">
-                Welcome back, <span id="userEmail">User</span>
-            </div>
-            
-            <!-- Bank Card Section -->
-            <div class="bank-card-section">
-                <div class="physical-card">
-                    <div class="card-chip">💳</div>
-                    <div class="card-number">**** **** **** 0035</div>
-                    <div class="card-details">
-                        <div>
-                            <span class="card-label">VALID THRU</span>
-                            <span>12/28</span>
+        </nav>
+
+        <!-- Main Dashboard Content -->
+        <div class="dashboard-main">
+            <div class="dashboard-container">
+                <!-- Welcome Section -->
+                <div class="welcome-banner">
+                    <div class="welcome-text">
+                        <h2>Welcome back, <span id="userEmailBanner">User</span></h2>
+                        <p>Here's your financial overview</p>
+                    </div>
+                    <div class="date-display">
+                        <span id="currentDate"></span>
+                    </div>
+                </div>
+
+                <!-- Stats Cards Row -->
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">💰</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Total Balance</p>
+                            <h3 id="balance">$0.00</h3>
                         </div>
-                        <div>
-                            <span class="card-label">CARD HOLDER</span>
-                            <span id="cardHolderName">Mark Young</span>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">💳</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Account Number</p>
+                            <h3>****0035</h3>
                         </div>
                     </div>
-                    <div class="card-brand">
-                        TrustTello
-                        <span class="mastercard-sign">Mastercard</span>
+                    <div class="stat-card">
+                        <div class="stat-icon">🏦</div>
+                        <div class="stat-info">
+                            <p class="stat-label">Routing Number</p>
+                            <h3>021000021</h3>
+                        </div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="account-summary">
-                <div class="balance-card">
-                    <p>Current Balance</p>
-                    <h2 id="balance">$0.00</h2>
+
+                <!-- Two Column Layout -->
+                <div class="two-columns">
+                    <!-- Left Column -->
+                    <div class="left-column">
+                        <!-- Bank Card -->
+                        <div class="card-section">
+                            <div class="physical-card">
+                                <div class="card-header">
+                                    <div class="card-chip">💳</div>
+                                    <div class="card-brand-logos">
+                                        <span class="card-brand-name">TrustTello</span>
+                                        <span class="mastercard-sign">Mastercard</span>
+                                    </div>
+                                </div>
+                                <div class="card-number">**** **** **** 0035</div>
+                                <div class="card-details">
+                                    <div>
+                                        <span class="card-label">VALID THRU</span>
+                                        <span class="card-value">12/28</span>
+                                    </div>
+                                    <div>
+                                        <span class="card-label">CARD HOLDER</span>
+                                        <span class="card-value" id="cardHolderName">Mark Young</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Transfer Money -->
+                        <div class="transfer-section">
+                            <h3>Send Money</h3>
+                            <form id="transferForm">
+                                <div class="transfer-group">
+                                    <label>Recipient Email</label>
+                                    <input type="email" id="recipientEmail" placeholder="friend@example.com" required>
+                                </div>
+                                <div class="transfer-group">
+                                    <label>Amount ($)</label>
+                                    <input type="number" id="transferAmount" step="0.01" min="0.01" placeholder="0.00" required>
+                                </div>
+                                <div class="transfer-group">
+                                    <label>Description (Optional)</label>
+                                    <input type="text" id="transferDesc" placeholder="Dinner, rent, etc.">
+                                </div>
+                                <button type="submit" id="transferBtn">Send Money →</button>
+                            </form>
+                            <div id="transferMessage" class="transfer-message"></div>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="right-column">
+                        <!-- Recent Transactions -->
+                        <div class="transactions">
+                            <div class="transactions-header">
+                                <h3>Recent Transactions</h3>
+                                <a href="#" class="view-all">View All →</a>
+                            </div>
+                            <table id="transactionsTable">
+                                <thead>
+                                    <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
+                                </thead>
+                                <tbody id="transactionsBody">
+                                    <tr class="pending-transaction">
+                                        <td>2026-05-21</td>
+                                        <td>⏳ Pending: Lumière Élite Production - Wire Transfer (On Hold)</td>
+                                        <td class="pending-amount">-$382,000.00</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
-                <div class="account-info">
-                    <p>Account Number: <strong>****0035</strong></p>
-                    <p>Routing: <strong>021000021</strong></p>
-                </div>
-            </div>
-            
-            <!-- Transfer Money Section -->
-            <div class="transfer-section">
-                <h3>Transfer Money</h3>
-                <form id="transferForm">
-                    <div class="transfer-group">
-                        <label>Recipient Email</label>
-                        <input type="email" id="recipientEmail" placeholder="friend@example.com" required>
-                    </div>
-                    <div class="transfer-group">
-                        <label>Amount ($)</label>
-                        <input type="number" id="transferAmount" step="0.01" min="0.01" placeholder="0.00" required>
-                    </div>
-                    <div class="transfer-group">
-                        <label>Description (Optional)</label>
-                        <input type="text" id="transferDesc" placeholder="Dinner, rent, etc.">
-                    </div>
-                    <button type="submit" id="transferBtn">Send Money</button>
-                </form>
-                <div id="transferMessage" class="transfer-message"></div>
-            </div>
-            
-            <div class="transactions">
-                <h3>Recent Transactions</h3>
-                <table id="transactionsTable">
-                    <thead>
-                        <tr><th>Date</th><th>Description</th><th>Amount</th></tr>
-                    </thead>
-                    <tbody id="transactionsBody">
-                        <tr class="pending-transaction">
-                            <td>2026-05-21</td>
-                            <td>⏳ Pending: Lumière Élite Production - Wire Transfer (On Hold)</td>
-                            <td class="pending-amount">-$382,000.00</td>
-                        </tr>
-                    </tbody>
-                </table>
             </div>
         </div>
     </div>
@@ -104,7 +145,6 @@
     <footer class="professional-footer">
         <div class="footer-container">
             <div class="footer-grid">
-                <!-- Brand Column - No Blue Background -->
                 <div class="footer-brand">
                     <div class="footer-logo">
                         <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgJX2ZDa-uyqSd7g50r66tyUPOaTvo8WCbmnlj95F3vcibmzq5OAerZwbmfi_qysc3w4CRJn98SGDkOrQ_m3ZCFn9ofwAVLncT7ilW7xC7VNoZwsf7-wgF4w3XSMqtoRwtBaZBlxAYm1YB0yN_78huTArWcEP47Dm3lwleB87Sgpbt4QH7KBnHInQFAAweE/s320/logo%20%281%29.png" 
@@ -112,16 +152,12 @@
                              class="footer-bank-logo">
                     </div>
                 </div>
-
-                <!-- Customer Care Column -->
                 <div class="footer-section">
                     <h4>Customer Care</h4>
                     <p class="support-email">support@trustello.site</p>
                     <p class="hours-title">Banking Hours</p>
                     <p class="hours">Mon – Fri: 9.00am to 5.00pm</p>
                 </div>
-
-                <!-- Quick Links Column -->
                 <div class="footer-section">
                     <h4>Quick Links</h4>
                     <ul class="footer-links">
@@ -134,8 +170,6 @@
                         <li><a href="#" class="login-link-footer">Login</a></li>
                     </ul>
                 </div>
-
-                <!-- Legal Column -->
                 <div class="footer-section">
                     <h4>Legal</h4>
                     <ul class="footer-links">
@@ -145,8 +179,6 @@
                     </ul>
                 </div>
             </div>
-
-            <!-- Copyright -->
             <div class="footer-copyright">
                 <p>© 2026 Trustello. All rights reserved.</p>
             </div>
@@ -154,5 +186,11 @@
     </footer>
 
     <script src="script.js"></script>
+    <script>
+        // Display current date
+        const today = new Date();
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        document.getElementById('currentDate').textContent = today.toLocaleDateString('en-US', options);
+    </script>
 </body>
 </html>
