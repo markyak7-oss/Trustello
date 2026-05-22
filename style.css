@@ -585,10 +585,7 @@ td.positive {
     display: inline-block;
 /* Logo Image Styles - Blue Background Shape */
 .logo-section {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-    z-index: 10;
+    display: inline-block;
 }
 
 .bank-logo {
@@ -599,4 +596,18 @@ td.positive {
     height: auto;
     display: inline-block;
     box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* For dashboard page - logo in top-left corner */
+.dashboard .logo-section {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 10;
+}
+
+/* For index page - logo in navbar */
+.navbar .logo-section {
+    display: flex;
+    align-items: center;
 }
